@@ -1,23 +1,46 @@
 # 🚀 AppWatch Dashboard
 
-> **En modern monitoring-dashboard för att övervaka alla dina Cloudflare Workers appar**
+# 🚀 AppWatch Galactic Monitoring Station
 
-![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Platform](https://img.shields.io/badge/platform-Cloudflare%20Workers-orange)
+> **En spektakulär rymdinspirerad monitoring-dashboard för övervakad av alla dina starships (appar)**
+
+![Status](https://img.shields.io/badge/status-🛸%20galactic%20active-brightgreen)
+![Platform](https://img.shields.io/badge/platform-🌌%20Cloudflare%20Workers-blue)
+![Theme](https://img.shields.io/badge/theme-🌟%20space%20station-purple)
 ![License](https://img.shields.io/badge/license-ISC-blue)
 
-## 📊 Översikt
+## 🌌 Galactic Overview
 
-AppWatch är en kraftfull monitoring-dashboard som hjälper dig att hålla koll på alla dina webbapplikationer. Byggd specifikt för Cloudflare Workers med D1 Database som backend, erbjuder den realtidsövervakning, uptime-statistik och en intuitiv webbaserad interface.
+AppWatch Galactic Monitoring Station är den ultimata sci-fi-inspirerade dashboarden för att övervaka din fleet av starships (webbapplikationer). Med ett mörkt rymdtema, animerade stjärnor, neon-glow effekter och advanced space-age funktioner, förvandlar den tråkig appövervakning till en episk galactic adventure!
 
-### ✨ Huvudfunktioner
+### 🛸 Galactic Features
 
-- 🔍 **Realtidsövervakning** - Kontinuerlig övervakning av dina appar
-- 📈 **Uptime-statistik** - Detaljerad statistik över tillgänglighet
-- ⚡ **Snabb dashboard** - Responsiv webinterface byggd för hastighet
-- 🎯 **Status-tracking** - Historik över appstatus och svarstider
-- 🔧 **Enkel konfiguration** - Lägg till nya appar med ett klick
-- 📱 **Mobiloptimerad** - Fungerar perfekt på alla enheter
+**🌟 Space-Age Visual Experience:**
+- 🌌 **Animated Starfield** - Twinklande stjärnor i rörlig bakgrund
+- ✨ **Glassmorfism UI** - Futuristisk glasbur-design med backdrop blur
+- 🌈 **Neon Glow Effects** - Cyan, pink och grön sci-fi-glow
+- 🚀 **Orbitron Typography** - Autentisk space-station typsnitt
+
+**📊 Mission Control Dashboard:**
+- 🛸 **Fleet Size Monitoring** - Totalt antal starships i din armada
+- ⚡ **Real-time Status** - Live-övervakning med ping-indikatorer  
+- 📡 **Response Time Tracking** - Signal-styrka för varje starship
+- 🚨 **Incident Management** - Automatisk detektering av offline ships
+- 📈 **Uptime Analytics** - Detaljerad efficiency-tracking
+- 🔄 **Auto Health Checks** - Periodiska emergency scans
+
+**🎮 Advanced Galactic Interface:**
+- 🔍 **Quantum Search** - Real-time filtrering med `Ctrl+K`
+- ⚙️ **Settings Portal** - Mission control konfiguration
+- 📊 **Data Export** - Exportera fleet-data för analys
+- 🎵 **Space Audio** - Sci-fi ljud för notifications
+- ⌨️ **Keyboard Navigation** - Space commander shortcuts
+
+**🛰️ Starship Management:**
+- 🏷️ **Ship Categories** - Web App, API, Database, Microservice
+- ⏱️ **Custom Scan Intervals** - Konfigurera övervakning per ship
+- 🔔 **Alert Systems** - Notification management
+- 💫 **Performance Metrics** - Avancerad diagnostik
 
 ## 🛠️ Teknisk Stack
 
@@ -76,20 +99,44 @@ http://localhost:8787
 npm run deploy
 ```
 
-## 📖 Användning
+## 🚀 Mission Instructions
 
-### Lägga till en ny app
+### Registrera Ny Starship
 
-1. Klicka på "**+ Lägg till App**" i dashboarden
-2. Fyll i appens namn, URL och beskrivning
-3. Klicka "**Lägg till**"
-4. Appen börjar övervakas automatiskt
+1. Klicka på "**🛸 Add Starship**" i mission control
+2. Fyll i starship-detaljer:
+   - **Starship Name** - USS Enterprise, etc.
+   - **Category** - Web App, API Service, Database, etc.
+   - **Hyperspace Coordinates** - URL till din app
+   - **Mission Description** - Beskriv starship-funktionen
+   - **Scan Interval** - Hur ofta kontroller ska köras
+   - **Timeout Settings** - Request timeout i millisekunder
+3. Aktivera **Alert Notifications** för automatiska varningar
+4. Klicka "**🚀 Launch Monitoring**"
 
-### Övervaka appar
+### Fleet Status Monitoring
 
-- **Grön status** 🟢 - Appen är online och svarar
-- **Röd status** 🔴 - Appen är offline eller svarar inte
-- **Grå status** ⚪ - Status okänd (nyligen tillagd)
+- **🟢 Online Signal** - Starship operational och svarar
+- **🔴 Offline Signal** - Starship behöver attention
+- **🟡 Unknown Signal** - Status unknown (nyregistrerad)
+- **💚 Strong Signal** - <200ms response time
+- **💛 Good Signal** - 200-500ms response time  
+- **🧡 Weak Signal** - 500ms-1s response time
+- **💔 Poor Signal** - >1s response time
+
+### Galactic Command Center
+
+**🎮 Keyboard Commands:**
+- `Ctrl + K` - Activate quantum search
+- `Ctrl + N` - Register new starship
+- `Ctrl + R` - Emergency fleet scan
+- `Escape` - Close command portals
+
+**📊 Mission Activities:**
+- **📡 Scan** - Perform immediate health check
+- **📊 History** - View detailed starship logs
+- **💥 Remove** - Decommission starship from fleet
+- **⚡ Scan All** - Fleet-wide status update
 
 ### API Endpoints
 
@@ -170,14 +217,26 @@ Detta projekt är licensierat under ISC License - se [LICENSE](LICENSE) filen f�
 **David Rydgren**
 - GitHub: [@screamm](https://github.com/screamm)
 
-## 🙏 Tack
+## 🌟 Galactic Credits
 
-- Cloudflare för deras fantastiska Workers-plattform
-- Alla som bidrar till open source-ekosystemet
+- 🚀 **Cloudflare** - För den fantastiska Workers space-platform
+- 🌌 **Open Source Galaxy** - Alla stjärnor som bidrar till universum
+- 🛸 **Space Explorer Community** - Utvecklare som vågar utforska nya världar
+
+## 🎯 Mission Roadmap
+
+- [ ] 📊 **Temporal Analytics** - Historiska grafer och trender
+- [ ] 🔔 **Quantum Alerts** - Email/webhook notifications
+- [ ] 🎯 **SLA Protocols** - Service level agreements
+- [ ] 📱 **Mobile Command** - PWA för mobil fleet management
+- [ ] 🔐 **Security Protocols** - Autentisering och behörigheter
+- [ ] 🌍 **Multi-Sector Monitoring** - Global region tracking
+- [ ] 🤖 **AI Assistant** - Intelligent fleet diagnostics
 
 ---
 
 <div align="center">
-  <p>Gjort med ❤️ för developer-communityn</p>
-  <p>⭐ Ge projektet en stjärna om du gillar det!</p>
+  <h3>🚀 Built for the Galactic Developer Community 🌌</h3>
+  <p>⭐ Give this space station a star if you love exploring the cosmos! ⭐</p>
+  <p><strong>May the code be with you! 🛸✨</strong></p>
 </div> 
