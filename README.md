@@ -214,7 +214,7 @@ Detta projekt är licensierat under ISC License - se [LICENSE](LICENSE) filen f�
 
 ## 👨‍💻 Utvecklare
 
-**David Rydgren**
+**David**
 - GitHub: [@screamm](https://github.com/screamm)
 
 ## 🌟 Galactic Credits
