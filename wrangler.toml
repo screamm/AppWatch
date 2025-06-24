@@ -1,0 +1,14 @@
+name = "appwatch-dashboard"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+ENVIRONMENT = "development"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "appwatch_db"
+database_id = "d3d78c08-9acd-4162-b3b4-4231e13d7437"
+
+[build]
+command = "" 
