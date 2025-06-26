@@ -99,44 +99,48 @@ async function serveHTML(env) {
 <body>
     <div class="container">
         <header class="header">
-            <h1>AppWatch</h1>
-            <div class="subtitle">Galactic Monitoring Station</div>
-            <div class="status-badge">🛸 Station Online</div>
+            <div class="header-top">
+                <div class="header-left">
+                    <h1>AppWatch</h1>
+                    <div class="subtitle">Galactic Monitoring Station</div>
+                </div>
+                <div class="theme-selector">
+                    <select id="themeSelector" onchange="changeTheme(this.value)">
+                        <option value="space">Space Station</option>
+                        <option value="pipboy">Pip-Boy Terminal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="status-badge">Station Online</div>
         </header>
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="icon">🚀</div>
                 <h3>Fleet Size</h3>
                 <div class="value" id="total-apps">-</div>
                 <div class="trend">Total Starships</div>
             </div>
             <div class="stat-card success">
-                <div class="icon">✨</div>
                 <h3>Active</h3>
                 <div class="value status-online" id="online-apps">-</div>
                 <div class="trend">Systems Online</div>
             </div>
             <div class="stat-card danger">
-                <div class="icon">💥</div>
                 <h3>Offline</h3>
                 <div class="value status-offline" id="offline-apps">-</div>
                 <div class="trend">Need Attention</div>
             </div>
             <div class="stat-card">
-                <div class="icon">⚡</div>
                 <h3>Efficiency</h3>
                 <div class="value" id="avg-uptime">-</div>
                 <div class="trend">Uptime Rating</div>
             </div>
             <div class="stat-card warning">
-                <div class="icon">⏱️</div>
                 <h3>Response</h3>
                 <div class="value" id="avg-response">-</div>
                 <div class="trend">Average Time</div>
             </div>
             <div class="stat-card">
-                <div class="icon">📊</div>
                 <h3>Incidents</h3>
                 <div class="value" id="total-incidents">-</div>
                 <div class="trend">Last 24h</div>
@@ -145,14 +149,13 @@ async function serveHTML(env) {
 
         <div class="control-panel">
             <div class="search-container">
-                <div class="search-icon">🔍</div>
                 <input type="text" id="search-input" class="search-input" placeholder="Search starships...">
             </div>
             <div class="actions">
-                <button id="add-app-btn" class="btn btn-primary">🛸 Add Starship</button>
-                <button id="refresh-btn" class="btn btn-secondary">⚡ Scan All</button>
-                <button id="export-btn" class="btn btn-secondary">📊 Export Data</button>
-                <button id="settings-btn" class="btn btn-secondary">⚙️ Settings</button>
+                <button id="add-app-btn" class="btn btn-primary">Add Starship</button>
+                <button id="refresh-btn" class="btn btn-secondary">Scan All</button>
+                <button id="export-btn" class="btn btn-secondary">Export Data</button>
+                <button id="settings-btn" class="btn btn-secondary">Settings</button>
             </div>
         </div>
 
@@ -164,7 +167,7 @@ async function serveHTML(env) {
         <div id="add-app-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div class="modal-title">🛸 Register New Starship</div>
+                <div class="modal-title">Register New Starship</div>
                 <form id="add-app-form">
                     <div class="form-row">
                         <div class="form-group">
@@ -209,7 +212,7 @@ async function serveHTML(env) {
                         <input type="checkbox" id="enable-alerts" checked>
                         <label for="enable-alerts">Enable Alert Notifications</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">🚀 Launch Monitoring</button>
+                    <button type="submit" class="btn btn-primary">Launch Monitoring</button>
                 </form>
             </div>
         </div>
@@ -218,7 +221,7 @@ async function serveHTML(env) {
         <div id="settings-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div class="modal-title">⚙️ Mission Control Settings</div>
+                <div class="modal-title">Mission Control Settings</div>
                 <form id="settings-form">
                     <div class="form-group">
                         <label for="global-interval">Global Scan Interval</label>
@@ -240,7 +243,7 @@ async function serveHTML(env) {
                         <input type="checkbox" id="dark-mode" checked>
                         <label for="dark-mode">Dark Mode (Space Theme)</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">💾 Save Configuration</button>
+                    <button type="submit" class="btn btn-primary">Save Configuration</button>
                 </form>
             </div>
         </div>

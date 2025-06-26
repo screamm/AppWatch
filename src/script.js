@@ -1,5 +1,64 @@
 // AppWatch Dashboard - Modern JavaScript
 
+// Theme Management
+function changeTheme(theme) {
+    document.body.className = theme === 'pipboy' ? 'theme-pipboy' : '';
+    localStorage.setItem('appwatch-theme', theme);
+    
+    // Update title based on theme
+    const title = theme === 'pipboy' ? 
+        'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
+        'AppWatch Galactic Monitoring Station';
+    document.querySelector('h1').textContent = title;
+    document.querySelector('.subtitle').textContent = theme === 'pipboy' ? 
+        'TERMINAL ACCESS PROTOCOL' : 
+        'Galactic Monitoring Station';
+    
+    showNotification(
+        theme === 'pipboy' ? 
+            'TERMINAL THEME ACTIVATED' : 
+            'SPACE STATION THEME ACTIVATED',
+        'success'
+    );
+}
+
+// Initialize theme on load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('appwatch-theme') || 'space';
+    document.getElementById('themeSelector').value = savedTheme;
+    changeTheme(savedTheme);
+});
+
+// Notification system
+function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 16px 20px;
+        max-width: 400px;
+        z-index: 3000;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        box-shadow: var(--glow-primary);
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => document.body.removeChild(notification), 300);
+    }, 3000);
+}
+
 class AppWatchDashboard {
     constructor() {
         this.apps = [];
@@ -90,8 +149,8 @@ class AppWatchDashboard {
         if (this.apps.length === 0) {
             grid.innerHTML = `
                 <div class="empty-state">
-                    <h3>🎯 Inga appar att övervaka än</h3>
-                    <p>Lägg till din första app för att komma igång!</p>
+                    <h3>No starships to monitor yet</h3>
+                    <p>Add your first starship to get started!</p>
                 </div>
             `;
             return;
@@ -137,10 +196,10 @@ class AppWatchDashboard {
                 
                 <div class="app-actions">
                     <button class="btn btn-secondary btn-small check-btn" data-app-id="${app.id}">
-                        🔍 Kolla Status
+                        Scan
                     </button>
                     <button class="btn btn-danger btn-small delete-btn" data-app-id="${app.id}">
-                        🗑️ Ta bort
+                        Remove
                     </button>
                 </div>
             </div>
@@ -319,11 +378,11 @@ class AppWatchDashboard {
 
     getStatusIcon(status) {
         const iconMap = {
-            'online': '🟢',
-            'offline': '🔴',
-            'unknown': '🟡'
+            'online': '●',
+            'offline': '●',
+            'unknown': '●'
         };
-        return iconMap[status] || '🟡';
+        return iconMap[status] || '●';
     }
 
     escapeHtml(text) {
