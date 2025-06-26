@@ -167,12 +167,12 @@ async function serveHTML(env) {
         <div id="add-app-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div class="modal-title">Register New Starship</div>
+                <div class="modal-title">Add App</div>
                 <form id="add-app-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="app-name">Starship Name</label>
-                            <input type="text" id="app-name" required placeholder="USS Enterprise">
+                            <label for="app-name">App Name</label>
+                                                          <input type="text" id="app-name" required placeholder="My App">
                         </div>
                         <div class="form-group">
                             <label for="app-category">Category</label>
@@ -185,13 +185,17 @@ async function serveHTML(env) {
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="app-url">Hyperspace Coordinates (URL)</label>
-                        <input type="url" id="app-url" required placeholder="https://starship.galaxy.com">
+                    <div class="form-row single">
+                        <div class="form-group">
+                            <label for="app-url">URL</label>
+                            <input type="url" id="app-url" required placeholder="https://example.com">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="app-description">Mission Description</label>
-                        <textarea id="app-description" placeholder="Describe the starship's mission and purpose..."></textarea>
+                    <div class="form-row single">
+                        <div class="form-group">
+                            <label for="app-description">Description</label>
+                            <textarea id="app-description" placeholder="Describe what this app does..."></textarea>
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
@@ -212,7 +216,7 @@ async function serveHTML(env) {
                         <input type="checkbox" id="enable-alerts" checked>
                         <label for="enable-alerts">Enable Alert Notifications</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Launch Monitoring</button>
+                    <button type="submit" class="btn btn-primary">Add App</button>
                 </form>
             </div>
         </div>
@@ -285,7 +289,7 @@ async function addApp(request, env, corsHeaders) {
   if (!name || !url) {
     return new Response(JSON.stringify({ 
       success: false, 
-      error: 'Starship name and hyperspace coordinates required' 
+      error: 'App name and URL are required' 
     }), {
       status: 400,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }

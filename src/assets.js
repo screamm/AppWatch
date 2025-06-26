@@ -653,23 +653,56 @@ body.theme-pipboy .empty-state h3 {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
-    padding: 32px;
-    max-width: 500px;
+    padding: 28px;
+    max-width: 700px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 90vh;
     overflow-y: auto;
     position: relative;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--glow-primary), 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.modal h2 {
+.close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.close:hover {
+    color: var(--accent-danger);
+    text-shadow: 0 0 10px var(--accent-danger);
+}
+
+.modal-title {
     font-family: var(--font-primary);
     color: var(--accent-primary);
-    margin-bottom: 24px;
-    font-size: 1.5rem;
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    padding-right: 40px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.form-row.single {
+    grid-template-columns: 1fr;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .form-group label {
@@ -677,6 +710,9 @@ body.theme-pipboy .empty-state h3 {
     color: var(--text-primary);
     margin-bottom: 8px;
     font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
@@ -686,22 +722,72 @@ body.theme-pipboy .empty-state h3 {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    padding: 12px;
+    padding: 10px 14px;
     border-radius: 8px;
     font-family: var(--font-secondary);
     font-size: 14px;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    min-height: 40px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 60px;
+    line-height: 1.4;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    min-height: 40px;
+    box-sizing: border-box;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: var(--accent-primary);
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 .form-actions {
     display: flex;
     gap: 12px;
     justify-content: flex-end;
-    margin-top: 24px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.modal form button[type="submit"] {
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    min-width: 140px;
+    transition: var(--transition);
 }
 
 /* Notifications */
@@ -747,6 +833,64 @@ body.theme-pipboy .empty-state h3 {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+/* Desktop Optimizations */
+@media (min-width: 1024px) {
+    .modal-content {
+        max-width: 900px;
+        padding: 20px 32px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .form-row {
+        gap: 20px;
+        margin-bottom: 8px;
+    }
+    
+    .form-group {
+        margin-bottom: 8px;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .form-actions {
+        margin-top: 16px;
+        padding-top: 12px;
+    }
+    
+    .form-group textarea {
+        min-height: 50px;
+    }
+    
+    .checkbox-group {
+        margin-bottom: 8px;
+        padding: 6px 12px;
+        min-height: 32px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 8px 12px;
+        min-height: 36px;
+        font-size: 14px;
+    }
+    
+    .form-group label {
+        margin-bottom: 4px;
+        font-size: 0.8rem;
+    }
+    
+    .close {
+        font-size: 20px;
+        top: 10px;
+        right: 15px;
+    }
 }
 
 /* Responsive Design */
@@ -829,6 +973,23 @@ body.theme-pipboy .empty-state h3 {
     .modal-content {
         padding: 24px;
         margin: 16px;
+        max-width: 90vw;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+        padding-right: 30px;
+    }
+    
+    .close {
+        font-size: 24px;
+        top: 12px;
+        right: 16px;
     }
 }
 
@@ -928,7 +1089,50 @@ body.theme-pipboy .meta-label {
 body.theme-pipboy .modal-content {
     background: var(--pip-dark);
     border-color: var(--pip-green);
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3), inset 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+body.theme-pipboy .modal-title {
+    color: var(--pip-green);
+    text-shadow: 0 0 15px var(--pip-green);
+}
+
+body.theme-pipboy .close {
+    color: var(--pip-amber);
+    text-shadow: 0 0 8px var(--pip-amber);
+}
+
+body.theme-pipboy .close:hover {
+    color: var(--pip-light-green);
+    text-shadow: 0 0 12px var(--pip-light-green);
+}
+
+body.theme-pipboy .form-group label {
+    color: var(--pip-light-green);
+    text-shadow: 0 0 5px var(--pip-green);
+}
+
+body.theme-pipboy .form-group input,
+body.theme-pipboy .form-group select,
+body.theme-pipboy .form-group textarea {
+    background: var(--pip-dark);
+    border-color: var(--pip-green);
+    color: var(--pip-green);
+    text-shadow: 0 0 3px var(--pip-green);
+    box-shadow: inset 0 0 8px rgba(0, 255, 0, 0.1);
+}
+
+body.theme-pipboy .form-group input:focus,
+body.theme-pipboy .form-group select:focus,
+body.theme-pipboy .form-group textarea:focus {
+    border-color: var(--pip-amber);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 12px rgba(0, 255, 0, 0.15);
+}
+
+body.theme-pipboy .checkbox-group {
+    background: rgba(0, 255, 0, 0.05);
+    border-color: var(--pip-green);
+    box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.1);
 }
 
 body.theme-pipboy .control-panel {
