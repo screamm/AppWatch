@@ -196,7 +196,6 @@ body.theme-pipboy::before {
 .theme-selector select:hover {
     border-color: var(--accent-primary);
     box-shadow: var(--glow-primary);
-    transform: translateY(-1px);
 }
 
 body.theme-pipboy .theme-selector select {
@@ -312,7 +311,6 @@ body.theme-pipboy .header h1 {
 }
 
 .btn:hover {
-    transform: translateY(-2px);
     box-shadow: var(--glow-primary);
     border-color: var(--accent-primary);
 }
@@ -365,7 +363,6 @@ body.theme-pipboy .btn-primary {
     outline: none;
     border-color: var(--accent-primary);
     box-shadow: var(--glow-primary);
-    transform: translateY(-1px);
 }
 
 .search-input::placeholder {
@@ -422,7 +419,6 @@ body.theme-pipboy .search-input:focus {
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
     box-shadow: var(--glow-primary);
 }
 
@@ -479,7 +475,6 @@ body.theme-pipboy .search-input:focus {
 }
 
 .app-card:hover {
-    transform: translateY(-4px);
     box-shadow: var(--glow-primary);
 }
 
