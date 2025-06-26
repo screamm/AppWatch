@@ -105,7 +105,7 @@ async function serveHTML(env) {
                     <div class="subtitle">Galactic Monitoring Station</div>
                 </div>
                 <div class="theme-selector">
-                    <select id="themeSelector" onchange="changeTheme(this.value)">
+                    <select id="themeSelector">
                         <option value="space">Space Station</option>
                         <option value="pipboy">Pip-Boy Terminal</option>
                     </select>

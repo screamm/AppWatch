@@ -25,8 +25,14 @@ function changeTheme(theme) {
 // Initialize theme on load
 document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('appwatch-theme') || 'space';
-    document.getElementById('themeSelector').value = savedTheme;
+    const themeSelector = document.getElementById('themeSelector');
+    themeSelector.value = savedTheme;
     changeTheme(savedTheme);
+    
+    // Add event listener for theme changes
+    themeSelector.addEventListener('change', function() {
+        changeTheme(this.value);
+    });
 });
 
 // Notification system

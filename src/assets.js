@@ -45,7 +45,7 @@ export const CSS = `/* AppWatch - Multi-Theme Monitoring Dashboard */
 body {
     --bg-primary: var(--space-black);
     --bg-secondary: var(--deep-space);
-    --bg-card: rgba(255, 255, 255, 0.05);
+    --bg-card: rgba(255, 255, 255, 0.08);
     --text-primary: var(--starlight);
     --text-secondary: var(--lunar-silver);
     --accent-primary: var(--stellar-cyan);
@@ -53,10 +53,10 @@ body {
     --accent-success: var(--aurora-green);
     --accent-warning: var(--solar-orange);
     --accent-danger: #ff1744;
-    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.15);
     --font-primary: 'Orbitron', monospace;
     --font-secondary: 'Exo 2', sans-serif;
-    --glow-primary: 0 0 var(--glow-size) rgba(0, 212, 255, 0.3);
+    --glow-primary: 0 0 var(--glow-size) rgba(0, 212, 255, 0.4);
 }
 
 /* Pip-Boy Theme */
@@ -178,32 +178,56 @@ body.theme-pipboy::before {
 }
 
 .theme-selector select {
-    background: var(--bg-secondary);
+    background: var(--bg-card);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 8px 12px;
+    border-radius: 12px;
+    padding: 10px 16px;
     font-family: var(--font-secondary);
     font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.theme-selector select:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--glow-primary);
+    transform: translateY(-1px);
 }
 
 body.theme-pipboy .theme-selector select {
     border-color: var(--pip-green);
     background: var(--pip-dark);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    text-shadow: 0 0 5px var(--pip-green);
+}
+
+body.theme-pipboy .theme-selector select:hover {
+    border-color: var(--pip-amber);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
 }
 
 .header h1 {
     font-family: var(--font-primary);
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 800;
     margin: 0;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-success));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: var(--glow-primary);
-    letter-spacing: 2px;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+    letter-spacing: 3px;
+    animation: glow-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+    from { text-shadow: 0 0 20px rgba(0, 212, 255, 0.4); }
+    to { text-shadow: 0 0 40px rgba(0, 212, 255, 0.8); }
 }
 
 body.theme-pipboy .header h1 {
@@ -211,8 +235,14 @@ body.theme-pipboy .header h1 {
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
     color: var(--pip-green);
-    text-shadow: 0 0 20px var(--pip-green);
+    text-shadow: 0 0 25px var(--pip-green), 0 0 50px var(--pip-green);
     text-transform: uppercase;
+    animation: pip-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pip-glow {
+    from { text-shadow: 0 0 20px var(--pip-green), 0 0 40px var(--pip-green); }
+    to { text-shadow: 0 0 30px var(--pip-green), 0 0 60px var(--pip-green); }
 }
 
 /* Controls */
@@ -229,18 +259,35 @@ body.theme-pipboy .header h1 {
     background: var(--bg-card);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
-    padding: 12px 24px;
-    border-radius: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
     cursor: pointer;
     font-family: var(--font-secondary);
     font-weight: 600;
     transition: var(--transition);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 14px;
     text-decoration: none;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn:hover {
@@ -260,11 +307,17 @@ body.theme-pipboy .btn {
     background: var(--pip-dark);
     border-color: var(--pip-green);
     text-shadow: 0 0 10px var(--pip-green);
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
 }
 
 body.theme-pipboy .btn:hover {
-    background: rgba(0, 255, 0, 0.2);
-    box-shadow: 0 0 15px var(--pip-green);
+    background: rgba(0, 255, 0, 0.15);
+    box-shadow: 0 0 20px var(--pip-green), inset 0 0 15px rgba(0, 255, 0, 0.2);
+    border-color: var(--pip-amber);
+}
+
+body.theme-pipboy .btn::before {
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.2), transparent);
 }
 
 body.theme-pipboy .btn-primary {
@@ -277,12 +330,21 @@ body.theme-pipboy .btn-primary {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    padding: 12px 16px;
-    border-radius: 8px;
+    padding: 14px 20px;
+    border-radius: 12px;
     font-family: var(--font-secondary);
     font-size: 14px;
-    backdrop-filter: blur(10px);
-    min-width: 250px;
+    backdrop-filter: blur(15px);
+    min-width: 280px;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: var(--glow-primary);
+    transform: translateY(-1px);
 }
 
 .search-input::placeholder {
@@ -292,6 +354,13 @@ body.theme-pipboy .btn-primary {
 body.theme-pipboy .search-input {
     background: var(--pip-dark);
     border-color: var(--pip-green);
+    text-shadow: 0 0 5px var(--pip-green);
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+body.theme-pipboy .search-input:focus {
+    border-color: var(--pip-amber);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 15px rgba(0, 255, 0, 0.2);
 }
 
 /* Stats Grid */
@@ -306,12 +375,28 @@ body.theme-pipboy .search-input {
     background: var(--bg-card);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border-color);
-    padding: 28px 24px;
+    padding: 32px 24px;
     border-radius: var(--border-radius);
     text-align: center;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.stat-card:hover::before {
+    opacity: 1;
 }
 
 .stat-card:hover {
@@ -321,11 +406,24 @@ body.theme-pipboy .search-input {
 
 .stat-card .stat-number {
     font-family: var(--font-primary);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: var(--accent-primary);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: block;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.stat-card.success .stat-number {
+    color: var(--accent-success);
+}
+
+.stat-card.danger .stat-number {
+    color: var(--accent-danger);
+}
+
+.stat-card.warning .stat-number {
+    color: var(--accent-warning);
 }
 
 .stat-card .stat-label {
