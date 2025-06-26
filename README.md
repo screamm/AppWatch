@@ -1,93 +1,100 @@
 # 🚀 AppWatch Dashboard
 
-# 🚀 AppWatch Galactic Monitoring Station
+> **Modern monitoring dashboard med dual-tema system - Space Station & Pip-Boy Terminal**
 
-> **En spektakulär rymdinspirerad monitoring-dashboard för övervakad av alla dina starships (appar)**
-
-![Status](https://img.shields.io/badge/status-🛸%20galactic%20active-brightgreen)
+![Status](https://img.shields.io/badge/status-🛸%20operational-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-🌌%20Cloudflare%20Workers-blue)
-![Theme](https://img.shields.io/badge/theme-🌟%20space%20station-purple)
+![Themes](https://img.shields.io/badge/themes-🌟%20space%20%7C%20🎮%20pipboy-purple)
 ![License](https://img.shields.io/badge/license-ISC-blue)
 
-## 🌌 Galactic Overview
+## 🌌 Overview
 
-AppWatch Galactic Monitoring Station är den ultimata sci-fi-inspirerade dashboarden för att övervaka din fleet av starships (webbapplikationer). Med ett mörkt rymdtema, animerade stjärnor, neon-glow effekter och advanced space-age funktioner, förvandlar den tråkig appövervakning till en episk galactic adventure!
+AppWatch Dashboard är en futuristisk monitoring-lösning med två distinkta teman för att övervaka dina applikationer. Välj mellan det eleganta Space Station-temat eller det retro-futuristiska Pip-Boy Terminal-temat från Fallout-universumet.
 
-### 🛸 Galactic Features
+### 🎨 Dual Theme System
 
-**🌟 Space-Age Visual Experience:**
+**🌟 Space Station Theme:**
 - 🌌 **Animated Starfield** - Twinklande stjärnor i rörlig bakgrund
 - ✨ **Glassmorfism UI** - Futuristisk glasbur-design med backdrop blur
 - 🌈 **Neon Glow Effects** - Cyan, pink och grön sci-fi-glow
 - 🚀 **Orbitron Typography** - Autentisk space-station typsnitt
 
-**📊 Mission Control Dashboard:**
-- 🛸 **Fleet Size Monitoring** - Totalt antal starships i din armada
-- ⚡ **Real-time Status** - Live-övervakning med ping-indikatorer  
-- 📡 **Response Time Tracking** - Signal-styrka för varje starship
-- 🚨 **Incident Management** - Automatisk detektering av offline ships
-- 📈 **Uptime Analytics** - Detaljerad efficiency-tracking
-- 🔄 **Auto Health Checks** - Periodiska emergency scans
+**🎮 Pip-Boy Terminal Theme:**
+- 💚 **Retro CRT Display** - Autentisk terminal-känsla med scanlines
+- 🟢 **Monochrome Green** - Klassisk grön-på-svart färgschema
+- ⚡ **CRT Flicker Effects** - Subtila flimmer-animationer
+- 🖥️ **Share Tech Mono** - Autentisk terminal-typsnitt
 
-**🎮 Advanced Galactic Interface:**
-- 🔍 **Quantum Search** - Real-time filtrering med `Ctrl+K`
-- ⚙️ **Settings Portal** - Mission control konfiguration
-- 📊 **Data Export** - Exportera fleet-data för analys
-- 🎵 **Space Audio** - Sci-fi ljud för notifications
-- ⌨️ **Keyboard Navigation** - Space commander shortcuts
+### 📊 Modern Dashboard Features
 
-**🛰️ Starship Management:**
-- 🏷️ **Ship Categories** - Web App, API, Database, Microservice
-- ⏱️ **Custom Scan Intervals** - Konfigurera övervakning per ship
-- 🔔 **Alert Systems** - Notification management
-- 💫 **Performance Metrics** - Avancerad diagnostik
+**🎯 Real-time Monitoring:**
+- 📱 **App Management** - Lägg till, redigera och ta bort applikationer
+- ⚡ **Live Status Tracking** - Real-time övervakning med auto-refresh
+- 📊 **Statistics Dashboard** - Fleet Size, Active, Offline, Efficiency
+- 📈 **Response Time Analytics** - Detaljerad prestanda-tracking
+- 🔄 **Auto Health Checks** - Konfigurerbar scan-intervaller
 
-## 🛠️ Teknisk Stack
+**🎮 Advanced Interface:**
+- 🔍 **Real-time Search** - Instant filtrering av applikationer
+- 🎨 **Theme Switcher** - Växla mellan Space Station och Pip-Boy
+- 📊 **Data Export** - Exportera monitoring-data som JSON
+- ⌨️ **Keyboard Shortcuts** - Snabba kommandon för power users
+- 📱 **Responsive Design** - Optimerad för desktop, tablet och mobil
+
+**🛠️ App Configuration:**
+- 🏷️ **Categories** - Web Application, API Service, Database, Microservice, Other
+- ⏱️ **Custom Intervals** - Konfigurera scan-frekvens per app
+- 🔔 **Alert System** - Aktivera/inaktivera notifikationer
+- ⚙️ **Timeout Settings** - Anpassade timeout-värden
+- 📝 **Descriptions** - Detaljerad app-dokumentation
+
+## 🛠️ Tech Stack
 
 - **Backend**: Cloudflare Workers
-- **Databas**: Cloudflare D1 (SQLite)
+- **Database**: Cloudflare D1 (SQLite)
 - **Frontend**: Vanilla HTML/CSS/JavaScript
 - **Deployment**: Wrangler CLI
-- **Styling**: Modern CSS med Flexbox/Grid
+- **Styling**: Modern CSS med Flexbox/Grid, CSS Variables
+- **Fonts**: Google Fonts (Orbitron, Exo 2, Share Tech Mono)
 
-## 🚀 Snabbstart
+## 🚀 Quick Start
 
-### Förutsättningar
+### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18+)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/)
-- Cloudflare-konto
+- Cloudflare Account
 
 ### Installation
 
-1. **Klona repot**
+1. **Clone Repository**
 ```bash
 git clone https://github.com/screamm/AppWatch.git
 cd AppWatch
 ```
 
-2. **Installera beroenden**
+2. **Install Dependencies**
 ```bash
 npm install
 ```
 
-3. **Konfigurera Cloudflare D1 Database**
+3. **Setup Cloudflare D1 Database**
 ```bash
-# Skapa databas
+# Create database
 wrangler d1 create appwatch_db
 
-# Uppdatera database_id i wrangler.toml med det genererade ID:t
+# Update database_id in wrangler.toml with generated ID
 
-# Kör databas-migrering
+# Run database migration
 wrangler d1 execute appwatch_db --file=./schema.sql
 ```
 
-4. **Starta utvecklingsserver**
+4. **Start Development Server**
 ```bash
 npm run dev
 ```
 
-5. **Besök dashboarden**
+5. **Open Dashboard**
 ```
 http://localhost:8787
 ```
@@ -95,148 +102,159 @@ http://localhost:8787
 ### 🌐 Deployment
 
 ```bash
-# Deploy till Cloudflare Workers
+# Deploy to Cloudflare Workers
 npm run deploy
 ```
 
-## 🚀 Mission Instructions
+## 🎮 Usage Guide
 
-### Registrera Ny Starship
+### Adding New Apps
 
-1. Klicka på "**🛸 Add App**" i mission control
-2. Fyll i starship-detaljer:
-   - **Starship Name** - USS Enterprise, etc.
-   - **Category** - Web App, API Service, Database, etc.
-   - **Hyperspace Coordinates** - URL till din app
-   - **Mission Description** - Beskriv starship-funktionen
-   - **Scan Interval** - Hur ofta kontroller ska köras
-   - **Timeout Settings** - Request timeout i millisekunder
-3. Aktivera **Alert Notifications** för automatiska varningar
-4. Klicka "**🚀 Launch Monitoring**"
+1. Click "**Add App**" button
+2. Fill in app details:
+   - **App Name** - Your application name
+   - **URL** - Application URL to monitor
+   - **Description** - What the app does
+   - **Category** - Select appropriate category
+   - **Scan Interval** - How often to check (5min - 1hr)
+   - **Timeout** - Request timeout in milliseconds
+3. Enable **Alert Notifications** for automatic alerts
+4. Click "**Add App**" to start monitoring
 
-### Fleet Status Monitoring
+### Status Indicators
 
-- **🟢 Online Signal** - Starship operational och svarar
-- **🔴 Offline Signal** - Starship behöver attention
-- **🟡 Unknown Signal** - Status unknown (nyregistrerad)
-- **💚 Strong Signal** - <200ms response time
-- **💛 Good Signal** - 200-500ms response time  
-- **🧡 Weak Signal** - 500ms-1s response time
-- **💔 Poor Signal** - >1s response time
+- **🟢 Online** - App is responding correctly
+- **🔴 Offline** - App is not responding or returns error
+- **🟡 Unknown** - Status not yet determined (newly added)
 
-### Galactic Command Center
+### Theme Switching
 
-**🎮 Keyboard Commands:**
-- `Ctrl + K` - Activate quantum search
-- `Ctrl + N` - Register new starship
-- `Ctrl + R` - Emergency fleet scan
-- `Escape` - Close command portals
+Use the theme selector in the header to switch between:
+- **Space Station** - Modern space-themed interface
+- **Pip-Boy Terminal** - Retro Fallout-inspired terminal
 
-**📊 Mission Activities:**
+### Keyboard Shortcuts
+
+- `Ctrl + K` - Open search
+- `Ctrl + N` - Add new app
+- `Ctrl + R` - Refresh all apps
+- `Escape` - Close modals
+
+### Dashboard Actions
+
 - **📡 Scan** - Perform immediate health check
-- **📊 History** - View detailed starship logs
-- **💥 Remove** - Decommission starship from fleet
-- **⚡ Scan All** - Fleet-wide status update
+- **🗑️ Remove** - Delete app from monitoring
+- **🔄 Scan All** - Check status of all apps
+- **📊 Export Data** - Download monitoring data as JSON
 
-### API Endpoints
+## 🔌 API Endpoints
 
-AppWatch erbjuder också ett REST API:
+AppWatch provides a REST API for programmatic access:
 
 ```javascript
-// Hämta alla appar
+// Get all apps
 GET /api/apps
 
-// Lägg till ny app
+// Add new app
 POST /api/apps
 {
-  "name": "Min App",
-  "url": "https://minapp.com",
-  "description": "Beskrivning av appen"
+  "name": "My App",
+  "url": "https://myapp.com",
+  "description": "App description",
+  "category": "web",
+  "check_interval": 300,
+  "timeout": 10000,
+  "enable_alerts": true
 }
 
-// Kontrollera appstatus
-GET /api/apps/{id}/check
+// Check app status
+POST /api/apps/{id}/check
 
-// Ta bort app
+// Delete app
 DELETE /api/apps/{id}
 
-// Hämta statistik
+// Get statistics
 GET /api/stats
+
+// Export data
+GET /api/export
+
+// Get app history
+GET /api/apps/{id}/history
 ```
 
-## 🗄️ Databasschema
+## 🗄️ Database Schema
 
-AppWatch använder två huvudtabeller:
+### `apps` - Application Information
+- `id` - Unique app ID (UUID)
+- `name` - Application name
+- `url` - Application URL
+- `description` - App description
+- `category` - App category (web/api/database/microservice/other)
+- `status` - Current status (online/offline/unknown)
+- `response_time` - Response time in milliseconds
+- `uptime_percentage` - Uptime percentage
+- `check_interval` - Scan interval in seconds
+- `timeout` - Request timeout in milliseconds
+- `enable_alerts` - Alert notifications enabled
+- `last_checked` - Last check timestamp
+- `created_at` - Creation timestamp
 
-### `apps` - Appinformation
-- `id` - Unikt app-ID
-- `name` - Appnamn
-- `url` - App-URL
-- `description` - Beskrivning
-- `status` - Aktuell status (online/offline/unknown)
-- `response_time` - Svarstid i millisekunder
-- `uptime_percentage` - Uptime i procent
+### `status_logs` - Status History
+- `id` - Log entry ID
+- `app_id` - Reference to app
+- `status` - Status at time of check
+- `response_time` - Response time in milliseconds
+- `checked_at` - Check timestamp
+- `error_message` - Error message if any
 
-### `status_logs` - Statushistorik
-- `app_id` - Referens till app
-- `status` - Status vid tidpunkten
-- `response_time` - Svarstid
-- `checked_at` - Tidpunkt för kontrollen
-- `error_message` - Eventuellt felmeddelande
+### `alerts` - Alert Configuration
+- `id` - Alert ID
+- `app_id` - Reference to app
+- `alert_type` - Type of alert
+- `threshold` - Alert threshold
+- `enabled` - Alert enabled status
 
-## 🎨 Skärmdumpar
+### `sla_configs` - SLA Configuration
+- `id` - SLA config ID
+- `app_id` - Reference to app
+- `target_uptime` - Target uptime percentage
+- `response_time_threshold` - Response time threshold
 
-*Dashboard kommer snart att utrustas med skärmdumpar för att visa den moderna designen*
+## 🎨 Customization
 
-## 🤝 Bidra
+### Adding New Themes
 
-Vi välkomnar bidrag! Så här kan du hjälpa till:
+1. Define theme variables in `src/assets.js`
+2. Add theme-specific styles
+3. Update theme selector in HTML
+4. Add theme logic in JavaScript
 
-1. 🍴 Forka projektet
-2. 🌱 Skapa en feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commita dina ändringar (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Pusha till branchen (`git push origin feature/AmazingFeature`)
-5. 🔄 Öppna en Pull Request
+### Custom Categories
 
-## 📋 Roadmap
+Modify the category options in the Add App modal by updating the select options in `src/index.js`.
 
-- [ ] 📊 Grafer och diagram för historisk data
-- [ ] 🔔 Notifieringar via email/webhook
-- [ ] 🎯 SLA-målsättningar och alerting
-- [ ] 📱 PWA-stöd för mobilappar
-- [ ] 🔐 Autentisering och behörigheter
-- [ ] 🌍 Multi-region monitoring
-- [ ] 📝 Detaljerade loggar och debugging
+## 🤝 Contributing
 
-## 📝 Licens
+We welcome contributions! Here's how you can help:
 
-Detta projekt är licensierat under ISC License - se [LICENSE](LICENSE) filen för detaljer.
+1. 🍴 Fork the project
+2. 🌱 Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
+5. 🔄 Open a Pull Request
 
-## 👨‍💻 Utvecklare
+## 📝 License
 
-**David**
-- GitHub: [@screamm](https://github.com/screamm)
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
-## 🌟 Galactic Credits
+## 🙏 Acknowledgments
 
-- 🚀 **Cloudflare** - För den fantastiska Workers space-platform
-- 🌌 **Open Source Galaxy** - Alla stjärnor som bidrar till universum
-- 🛸 **Space Explorer Community** - Utvecklare som vågar utforska nya världar
-
-## 🎯 Mission Roadmap
-
-- [ ] 📊 **Temporal Analytics** - Historiska grafer och trender
-- [ ] 🔔 **Quantum Alerts** - Email/webhook notifications
-- [ ] 🎯 **SLA Protocols** - Service level agreements
-- [ ] 📱 **Mobile Command** - PWA för mobil fleet management
-- [ ] 🔐 **Security Protocols** - Autentisering och behörigheter
-- [ ] 🌍 **Multi-Sector Monitoring** - Global region tracking
-- [ ] 🤖 **AI Assistant** - Intelligent fleet diagnostics
+- Inspired by Fallout's Pip-Boy interface
+- Space theme inspired by modern sci-fi aesthetics
+- Built with Cloudflare Workers platform
+- Typography by Google Fonts
 
 ---
 
-<div align="center">
-  <h3>🚀 Built for the Galactic Developer Community 🌌</h3>
-  <p>⭐ Give this space station a star if you love exploring the cosmos! ⭐</p>
-  <p><strong>May the code be with you! 🛸✨</strong></p>
-</div> 
+**Made with 💚 by the AppWatch Team** 
