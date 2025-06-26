@@ -248,11 +248,32 @@ body.theme-pipboy .header h1 {
 /* Controls */
 .controls {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.control-panel {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 24px;
     margin-bottom: 40px;
+}
+
+.control-panel .search-container {
+    margin-bottom: 20px;
+}
+
+.control-panel .actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -366,9 +387,10 @@ body.theme-pipboy .search-input:focus {
 /* Stats Grid */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    margin-bottom: 50px;
+    padding: 0 10px;
 }
 
 .stat-card {
@@ -437,9 +459,10 @@ body.theme-pipboy .search-input:focus {
 /* Apps Grid */
 .apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 32px;
+    margin-bottom: 50px;
+    padding: 0 10px;
 }
 
 .app-card {
@@ -664,13 +687,25 @@ body.theme-pipboy .search-input:focus {
     }
     
     .stats-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 0 5px;
     }
     
     .apps-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 20px;
+        padding: 0 5px;
+    }
+    
+    .control-panel {
+        padding: 16px;
+        margin-bottom: 30px;
+    }
+    
+    .control-panel .actions {
+        flex-direction: column;
+        gap: 12px;
     }
     
     .modal-content {
@@ -699,5 +734,11 @@ body.theme-pipboy .stat-number {
 body.theme-pipboy .modal-content {
     background: var(--pip-dark);
     border-color: var(--pip-green);
+}
+
+body.theme-pipboy .control-panel {
+    background: rgba(0, 255, 0, 0.05);
+    border-color: var(--pip-green);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
 }
 `;

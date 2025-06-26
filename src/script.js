@@ -1,14 +1,16 @@
 // AppWatch Dashboard - Modern JavaScript
 
-// Theme Management
-function changeTheme(theme) {
+// Theme Management (moved to global scope above)
+
+// Global theme functions
+window.changeTheme = function(theme) {
     document.body.className = theme === 'pipboy' ? 'theme-pipboy' : '';
     localStorage.setItem('appwatch-theme', theme);
     
     // Update title based on theme
     const title = theme === 'pipboy' ? 
         'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
-        'AppWatch Galactic Monitoring Station';
+        'AppWatch';
     document.querySelector('h1').textContent = title;
     document.querySelector('.subtitle').textContent = theme === 'pipboy' ? 
         'TERMINAL ACCESS PROTOCOL' : 
@@ -20,20 +22,20 @@ function changeTheme(theme) {
             'SPACE STATION THEME ACTIVATED',
         'success'
     );
-}
+};
 
-// Initialize theme on load
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize theme
+function initializeTheme() {
     const savedTheme = localStorage.getItem('appwatch-theme') || 'space';
     const themeSelector = document.getElementById('themeSelector');
-    themeSelector.value = savedTheme;
+    if (themeSelector) {
+        themeSelector.value = savedTheme;
+        themeSelector.addEventListener('change', function() {
+            changeTheme(this.value);
+        });
+    }
     changeTheme(savedTheme);
-    
-    // Add event listener for theme changes
-    themeSelector.addEventListener('change', function() {
-        changeTheme(this.value);
-    });
-});
+}
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -72,6 +74,7 @@ class AppWatchDashboard {
     }
 
     async init() {
+        initializeTheme();
         this.setupEventListeners();
         await this.loadStats();
         await this.loadApps();
