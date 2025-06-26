@@ -152,7 +152,7 @@ async function serveHTML(env) {
                 <input type="text" id="search-input" class="search-input" placeholder="Search starships...">
             </div>
             <div class="actions">
-                <button id="add-app-btn" class="btn btn-primary">Add Starship</button>
+                <button id="add-app-btn" class="btn btn-primary">Add App</button>
                 <button id="refresh-btn" class="btn btn-secondary">Scan All</button>
                 <button id="export-btn" class="btn btn-secondary">Export Data</button>
                 <button id="settings-btn" class="btn btn-secondary">Settings</button>
@@ -477,8 +477,67 @@ async function serveCSS() {
 }
 
 async function serveJS() {
-  const { JS } = await import('./assets.js');
-  return new Response(JS, {
-    headers: { 'Content-Type': 'application/javascript' }
-  });
+  // Import the full script content from assets.js
+  try {
+    const { SCRIPT } = await import('./assets.js');
+    return new Response(SCRIPT, {
+      headers: { 'Content-Type': 'application/javascript' }
+    });
+  } catch (error) {
+    // Fallback - serve basic script with theme functionality
+    const basicScript = `
+// AppWatch Dashboard - Basic Script
+console.log('AppWatch Dashboard loading...');
+
+// Global theme functions
+window.changeTheme = function(theme) {
+    console.log('Changing theme to:', theme);
+    document.body.className = theme === 'pipboy' ? 'theme-pipboy' : '';
+    localStorage.setItem('appwatch-theme', theme);
+    
+    // Update title based on theme
+    const title = theme === 'pipboy' ? 
+        'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
+        'AppWatch';
+    const h1 = document.querySelector('h1');
+    if (h1) h1.textContent = title;
+    
+    const subtitle = document.querySelector('.subtitle');
+    if (subtitle) {
+        subtitle.textContent = theme === 'pipboy' ? 
+            'TERMINAL ACCESS PROTOCOL' : 
+            'Galactic Monitoring Station';
+    }
+    
+    console.log('Theme changed successfully to:', theme);
+};
+
+// Initialize theme
+function initializeTheme() {
+    console.log('Initializing theme...');
+    const savedTheme = localStorage.getItem('appwatch-theme') || 'space';
+    const themeSelector = document.getElementById('themeSelector');
+    if (themeSelector) {
+        themeSelector.value = savedTheme;
+        themeSelector.addEventListener('change', function() {
+            console.log('Theme selector changed to:', this.value);
+            changeTheme(this.value);
+        });
+    }
+    changeTheme(savedTheme);
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+} else {
+    initializeTheme();
+}
+
+console.log('Theme system loaded');
+`;
+    return new Response(basicScript, {
+      headers: { 'Content-Type': 'application/javascript' }
+    });
+  }
 } 

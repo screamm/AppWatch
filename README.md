@@ -103,7 +103,7 @@ npm run deploy
 
 ### Registrera Ny Starship
 
-1. Klicka på "**🛸 Add Starship**" i mission control
+1. Klicka på "**🛸 Add App**" i mission control
 2. Fyll i starship-detaljer:
    - **Starship Name** - USS Enterprise, etc.
    - **Category** - Web App, API Service, Database, etc.
