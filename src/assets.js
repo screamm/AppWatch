@@ -602,3 +602,4 @@ body.theme-pipboy .modal-content {
     background: var(--pip-dark);
     border-color: var(--pip-green);
 }
+`;
