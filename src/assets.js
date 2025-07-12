@@ -1140,25 +1140,367 @@ body.theme-pipboy .control-panel {
     border-color: var(--pip-green);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
 }
+
+/* Login Screen Styles */
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.login-container {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: 32px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: var(--glow-primary);
+}
+
+.login-header h1 {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-success));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+    letter-spacing: 2px;
+    animation: glow-pulse 3s ease-in-out infinite alternate;
+}
+
+.login-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-form-container {
+    margin-bottom: 24px;
+}
+
+.login-form .form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.login-form .form-group:last-of-type {
+    margin-bottom: 32px;
+}
+
+.login-form label {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-form input {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-error {
+    background: rgba(255, 23, 68, 0.1);
+    border: 1px solid var(--accent-danger);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 16px;
+    color: var(--accent-danger);
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-theme-selector {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.login-theme-selector select {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.login-theme-selector select:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--glow-primary);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+}
+
+#username-display {
+    color: var(--accent-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Pip-Boy Login Theme */
+body.theme-pipboy .login-screen {
+    background: var(--pip-black);
+}
+
+body.theme-pipboy .login-container {
+    background: var(--pip-dark);
+    border-color: var(--pip-green);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3), inset 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+body.theme-pipboy .login-header h1 {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--pip-green);
+    text-shadow: 0 0 25px var(--pip-green), 0 0 50px var(--pip-green);
+    text-transform: uppercase;
+    animation: pip-glow 2s ease-in-out infinite alternate;
+}
+
+body.theme-pipboy .login-subtitle {
+    color: var(--pip-light-green);
+    text-shadow: 0 0 5px var(--pip-green);
+}
+
+body.theme-pipboy .login-form label {
+    color: var(--pip-light-green);
+    text-shadow: 0 0 5px var(--pip-green);
+}
+
+body.theme-pipboy .login-form input {
+    background: var(--pip-dark);
+    border-color: var(--pip-green);
+    color: var(--pip-green);
+    text-shadow: 0 0 3px var(--pip-green);
+    box-shadow: inset 0 0 8px rgba(0, 255, 0, 0.1);
+}
+
+body.theme-pipboy .login-form input:focus {
+    border-color: var(--pip-amber);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 12px rgba(0, 255, 0, 0.15);
+}
+
+body.theme-pipboy .login-btn {
+    background: var(--pip-green);
+    color: var(--pip-black);
+    text-shadow: none;
+    border: none;
+}
+
+body.theme-pipboy .login-btn:hover {
+    background: var(--pip-light-green);
+    box-shadow: 0 0 20px var(--pip-green);
+}
+
+body.theme-pipboy .login-error {
+    background: rgba(255, 204, 0, 0.15);
+    border-color: var(--pip-amber);
+    color: var(--pip-amber);
+    text-shadow: 0 0 5px var(--pip-amber);
+}
+
+body.theme-pipboy .login-theme-selector {
+    border-color: var(--pip-green);
+}
+
+body.theme-pipboy .login-theme-selector select {
+    background: var(--pip-dark);
+    border-color: var(--pip-green);
+    color: var(--pip-green);
+    text-shadow: 0 0 5px var(--pip-green);
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+body.theme-pipboy .login-theme-selector select:hover {
+    border-color: var(--pip-amber);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+body.theme-pipboy #username-display {
+    color: var(--pip-green);
+    text-shadow: 0 0 8px var(--pip-green);
+}
 `;
 
-export const SCRIPT = `// AppWatch Dashboard - Modern JavaScript
+export const SCRIPT = `// AppWatch Dashboard - Modern JavaScript with Authentication
 
-// Theme Management (moved to global scope above)
+// Authentication Management
+class AuthManager {
+    constructor() {
+        this.isAuthenticated = false;
+        this.currentUser = null;
+    }
+
+    async checkAuth() {
+        try {
+            const response = await fetch('/api/auth/user');
+            const data = await response.json();
+            
+            if (data.success && data.auth.authenticated) {
+                this.isAuthenticated = true;
+                this.currentUser = data.auth.user;
+                return true;
+            } else {
+                this.isAuthenticated = false;
+                this.currentUser = null;
+                return false;
+            }
+        } catch (error) {
+            console.error('Auth check failed:', error);
+            this.isAuthenticated = false;
+            this.currentUser = null;
+            return false;
+        }
+    }
+
+    async login(username, password) {
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+            
+            if (data.success) {
+                this.isAuthenticated = true;
+                this.currentUser = data.user;
+                return { success: true };
+            } else {
+                return { success: false, error: data.error || 'Login failed' };
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            return { success: false, error: 'Network error occurred' };
+        }
+    }
+
+    async logout() {
+        try {
+            await fetch('/api/auth/logout', { method: 'POST' });
+        } catch (error) {
+            console.error('Logout error:', error);
+        } finally {
+            this.isAuthenticated = false;
+            this.currentUser = null;
+            this.showLogin();
+        }
+    }
+
+    showLogin() {
+        document.getElementById('login-screen').style.display = 'flex';
+        document.getElementById('main-dashboard').style.display = 'none';
+    }
+
+    showDashboard() {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('main-dashboard').style.display = 'block';
+        
+        // Update username display
+        if (this.currentUser) {
+            const usernameDisplay = document.getElementById('username-display');
+            if (usernameDisplay) {
+                usernameDisplay.textContent = this.currentUser.username;
+            }
+        }
+    }
+}
 
 // Global theme functions
 window.changeTheme = function(theme) {
     document.body.className = theme === 'pipboy' ? 'theme-pipboy' : '';
     localStorage.setItem('appwatch-theme', theme);
     
-    // Update title based on theme
-    const title = theme === 'pipboy' ? 
-        'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
-        'AppWatch';
-    document.querySelector('h1').textContent = title;
-    document.querySelector('.subtitle').textContent = theme === 'pipboy' ? 
-        'TERMINAL ACCESS PROTOCOL' : 
-        'Galactic Monitoring Station';
+    // Update title based on theme for both login and dashboard
+    const titles = {
+        login: theme === 'pipboy' ? 
+            'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
+            'AppWatch',
+        dashboard: theme === 'pipboy' ? 
+            'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
+            'AppWatch'
+    };
+    
+    const subtitles = {
+        login: theme === 'pipboy' ? 
+            'TERMINAL ACCESS PROTOCOL' : 
+            'Galactic Monitoring Station',
+        dashboard: theme === 'pipboy' ? 
+            'TERMINAL ACCESS PROTOCOL' : 
+            'Galactic Monitoring Station'
+    };
+    
+    // Update login screen
+    const loginTitle = document.getElementById('login-title');
+    const loginSubtitle = document.getElementById('login-subtitle');
+    if (loginTitle) loginTitle.textContent = titles.login;
+    if (loginSubtitle) loginSubtitle.textContent = subtitles.login;
+    
+    // Update dashboard
+    const dashboardTitle = document.querySelector('#main-dashboard h1');
+    const dashboardSubtitle = document.querySelector('#main-dashboard .subtitle');
+    if (dashboardTitle) dashboardTitle.textContent = titles.dashboard;
+    if (dashboardSubtitle) dashboardSubtitle.textContent = subtitles.dashboard;
     
     showNotification(
         theme === 'pipboy' ? 
@@ -1171,6 +1513,17 @@ window.changeTheme = function(theme) {
 // Initialize theme
 function initializeTheme() {
     const savedTheme = localStorage.getItem('appwatch-theme') || 'space';
+    
+    // Login theme selector
+    const loginThemeSelector = document.getElementById('login-theme-selector');
+    if (loginThemeSelector) {
+        loginThemeSelector.value = savedTheme;
+        loginThemeSelector.addEventListener('change', function() {
+            changeTheme(this.value);
+        });
+    }
+    
+    // Dashboard theme selector
     const themeSelector = document.getElementById('themeSelector');
     if (themeSelector) {
         themeSelector.value = savedTheme;
@@ -1178,6 +1531,7 @@ function initializeTheme() {
             changeTheme(this.value);
         });
     }
+    
     changeTheme(savedTheme);
 }
 
@@ -1214,15 +1568,74 @@ function showNotification(message, type = 'info') {
 class AppWatchDashboard {
     constructor() {
         this.apps = [];
+        this.authManager = new AuthManager();
         this.init();
     }
 
     async init() {
         initializeTheme();
-        this.setupEventListeners();
-        await this.loadStats();
-        await this.loadApps();
-        this.startAutoRefresh();
+        
+        // Check authentication first
+        const isAuthenticated = await this.authManager.checkAuth();
+        
+        if (isAuthenticated) {
+            this.authManager.showDashboard();
+            this.setupEventListeners();
+            await this.loadStats();
+            await this.loadApps();
+            this.startAutoRefresh();
+        } else {
+            this.authManager.showLogin();
+            this.setupLoginEventListeners();
+        }
+    }
+
+    setupLoginEventListeners() {
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        
+        if (loginForm) {
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const submitBtn = loginForm.querySelector('.login-btn');
+                
+                // Show loading state
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Connecting...';
+                submitBtn.disabled = true;
+                loginError.style.display = 'none';
+                
+                try {
+                    const result = await this.authManager.login(username, password);
+                    
+                    if (result.success) {
+                        // Login successful - initialize dashboard
+                        this.authManager.showDashboard();
+                        this.setupEventListeners();
+                        await this.loadStats();
+                        await this.loadApps();
+                        this.startAutoRefresh();
+                        
+                        // Clear form
+                        loginForm.reset();
+                    } else {
+                        // Show error
+                        loginError.textContent = result.error;
+                        loginError.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Login error:', error);
+                    loginError.textContent = 'Connection failed. Please try again.';
+                    loginError.style.display = 'block';
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
     }
 
     setupEventListeners() {
@@ -1259,6 +1672,14 @@ class AppWatchDashboard {
         refreshBtn.addEventListener('click', async () => {
             await this.refreshAll();
         });
+
+        // Logout button
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', async () => {
+                await this.authManager.logout();
+            });
+        }
     }
 
     async loadStats() {

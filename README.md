@@ -1,15 +1,32 @@
 # 🚀 AppWatch Dashboard
 
-> **Modern monitoring dashboard med dual-tema system - Space Station & Pip-Boy Terminal**
+> **Säker monitoring dashboard med dual-tema system och lösenordsskydd - Space Station & Pip-Boy Terminal**
 
 ![Status](https://img.shields.io/badge/status-🛸%20operational-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-🌌%20Cloudflare%20Workers-blue)
 ![Themes](https://img.shields.io/badge/themes-🌟%20space%20%7C%20🎮%20pipboy-purple)
+![Security](https://img.shields.io/badge/security-🔐%20PBKDF2%20protected-red)
 ![License](https://img.shields.io/badge/license-ISC-blue)
 
 ## 🌌 Overview
 
-AppWatch Dashboard är en futuristisk monitoring-lösning med två distinkta teman för att övervaka dina applikationer. Välj mellan det eleganta Space Station-temat eller det retro-futuristiska Pip-Boy Terminal-temat från Fallout-universumet.
+AppWatch Dashboard är en säker, futuristisk monitoring-lösning med lösenordsskydd och två distinkta teman för att övervaka dina applikationer. Välj mellan det eleganta Space Station-temat eller det retro-futuristiska Pip-Boy Terminal-temat från Fallout-universumet.
+
+### 🔐 Security Features
+
+**🛡️ Enterprise Security:**
+- 🔑 **PBKDF2 Authentication** - 100,000 iterationer för säker lösenordshashing
+- 🍪 **Secure Session Cookies** - HttpOnly, Secure, SameSite protection
+- ⏰ **Session Timeout** - 8-timmars automatisk utloggning
+- 🧹 **Session Cleanup** - Automatisk cleanup av utgångna sessioner
+- 👤 **User Management** - Multi-user support med roller
+- 🔄 **Lösenordsbyte** - Säker lösenordsändrings-funktion
+
+**🎮 Autentiserad Pip-Boy Experience:**
+- 🖥️ **Terminal Login Screen** - Autentisk ROBCO INDUSTRIES inloggning
+- 💚 **CRT Login Effects** - Scanlines och terminal-glow på login
+- 🔐 **Secured Dashboard** - Endast autentiserade användare får åtkomst
+- 🚪 **Logout Function** - Säker utloggning med session-rensning
 
 ### 🎨 Dual Theme System
 
@@ -99,6 +116,15 @@ npm run dev
 http://localhost:8787
 ```
 
+6. **Login to Dashboard**
+```
+Standard inloggning:
+Användarnamn: admin
+Lösenord: AppWatch2024!
+
+⚠️ VIKTIGT: Byt lösenordet första gången du loggar in!
+```
+
 ### 🌐 Deployment
 
 ```bash
@@ -107,6 +133,22 @@ npm run deploy
 ```
 
 ## 🎮 Usage Guide
+
+### 🔐 Authentication & Login
+
+**First Time Setup:**
+1. Navigate to your AppWatch dashboard
+2. Select theme (Space Station or Pip-Boy Terminal)
+3. Login with default credentials:
+   - **Username:** `admin`
+   - **Password:** `AppWatch2024!`
+4. **VIKTIGT:** Change password immediately via settings
+
+**Login Features:**
+- 🎨 **Theme Selection** - Choose theme before login
+- 🔄 **Auto Session Management** - 8-hour session timeout
+- 🚪 **Secure Logout** - Click logout button to end session safely
+- ⚡ **Remember Theme** - Theme preference saved locally
 
 ### Adding New Apps
 
@@ -151,11 +193,37 @@ Use the theme selector in the header to switch between:
 
 AppWatch provides a REST API for programmatic access:
 
+### 🔐 Authentication Endpoints
+
 ```javascript
-// Get all apps
+// Login
+POST /api/auth/login
+{
+  "username": "admin",
+  "password": "AppWatch2024!"
+}
+
+// Logout
+POST /api/auth/logout
+
+// Change password
+POST /api/auth/change-password
+{
+  "current_password": "old_password",
+  "new_password": "new_password"
+}
+
+// Get user info
+GET /api/auth/user
+```
+
+### 📱 Application Endpoints
+
+```javascript
+// Get all apps (requires authentication)
 GET /api/apps
 
-// Add new app
+// Add new app (requires authentication)
 POST /api/apps
 {
   "name": "My App",
@@ -167,21 +235,28 @@ POST /api/apps
   "enable_alerts": true
 }
 
-// Check app status
+// Check app status (requires authentication)
 POST /api/apps/{id}/check
 
-// Delete app
+// Delete app (requires authentication)
 DELETE /api/apps/{id}
 
-// Get statistics
+// Get statistics (requires authentication)
 GET /api/stats
 
-// Export data
+// Export data (requires authentication)
 GET /api/export
 
-// Get app history
+// Get app history (requires authentication)
 GET /api/apps/{id}/history
 ```
+
+### 🔒 Security Notes
+
+- All endpoints (except authentication) require valid session cookies
+- Session cookies are HttpOnly and Secure
+- Sessions expire after 8 hours of inactivity
+- Failed login attempts are logged for security monitoring
 
 ## 🗄️ Database Schema
 
@@ -220,6 +295,22 @@ GET /api/apps/{id}/history
 - `app_id` - Reference to app
 - `target_uptime` - Target uptime percentage
 - `response_time_threshold` - Response time threshold
+
+### `auth_users` - User Authentication
+- `id` - User ID
+- `username` - Username (unique)
+- `password_hash` - PBKDF2 hashed password
+- `salt` - Password salt
+- `role` - User role (admin/user)
+- `created_at` - Account creation timestamp
+- `last_login` - Last login timestamp
+
+### `auth_sessions` - Active Sessions
+- `id` - Session ID
+- `user_id` - Reference to user
+- `session_token` - Secure session token
+- `expires_at` - Session expiration
+- `created_at` - Session creation timestamp
 
 ## 🎨 Customization
 

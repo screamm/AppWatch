@@ -4,6 +4,17 @@ compatibility_date = "2024-01-01"
 
 [vars]
 ENVIRONMENT = "development"
+JWT_ISSUER = "https://davidrydgren.cloudflareaccess.com"
+JWT_AUDIENCE = "appwatch-dashboard"
+ACCESS_DOMAIN = "davidrydgren.cloudflareaccess.com"
+
+# Production environment
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+# Development environment
+[env.development]
+vars = { ENVIRONMENT = "development" }
 
 [[d1_databases]]
 binding = "DB"
@@ -11,4 +22,8 @@ database_name = "appwatch_db"
 database_id = "d3d78c08-9acd-4162-b3b4-4231e13d7437"
 
 [build]
-command = "" 
+command = ""
+
+# Cron Triggers for automated monitoring
+[triggers]
+crons = ["*/5 * * * *"] 
