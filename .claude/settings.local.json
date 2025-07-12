@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(wrangler d1 execute:*)",
+      "Bash(wrangler whoami:*)",
+      "Bash(wrangler secret put:*)",
+      "Bash(wrangler secret:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:massadas.com)",
+      "WebFetch(domain:lord.technology)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:dinopixel.com)"
+    ],
+    "deny": []
+  }
+}
