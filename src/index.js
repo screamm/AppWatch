@@ -421,6 +421,7 @@ async function serveHTML(env, headers) {
                 <select id="login-theme-selector">
                     <option value="space">Space Station</option>
                     <option value="pipboy">Pip-Boy Terminal</option>
+                    <option value="mario">Super Mario 8-bit</option>
                 </select>
             </div>
         </div>
@@ -438,6 +439,7 @@ async function serveHTML(env, headers) {
                     <select id="themeSelector">
                         <option value="space">Space Station</option>
                         <option value="pipboy">Pip-Boy Terminal</option>
+                        <option value="mario">Super Mario 8-bit</option>
                     </select>
                 </div>
                 <div class="user-menu">

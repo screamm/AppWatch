@@ -34,6 +34,20 @@ export const CSS = `/* AppWatch - Multi-Theme Monitoring Dashboard */
     --pip-light-green: #66ff66;
     --pip-dark-green: #004400;
     
+    /* Super Mario 8-bit Theme Colors */
+    --mario-red: #FF0000;
+    --mario-blue: #0000FF;
+    --mario-dark-blue: #000080;
+    --mario-yellow: #FFD700;
+    --mario-orange: #FF8C00;
+    --mario-brown: #8B4513;
+    --mario-beige: #F5DEB3;
+    --mario-green: #228B22;
+    --mario-gray: #696969;
+    --mario-white: #FFFFFF;
+    --mario-black: #000000;
+    --mario-purple: #8A2BE2;
+    
     /* Layout */
     --border-radius: 16px;
     --border-radius-lg: 24px;
@@ -75,6 +89,24 @@ body.theme-pipboy {
     --font-primary: 'Share Tech Mono', monospace;
     --font-secondary: 'Share Tech Mono', monospace;
     --glow-primary: 0 0 var(--glow-size) rgba(0, 255, 0, 0.5);
+}
+
+/* Super Mario 8-bit Theme */
+body.theme-mario {
+    --bg-primary: var(--mario-blue);
+    --bg-secondary: var(--mario-dark-blue);
+    --bg-card: rgba(255, 215, 0, 0.15);
+    --text-primary: var(--mario-white);
+    --text-secondary: var(--mario-beige);
+    --accent-primary: var(--mario-red);
+    --accent-secondary: var(--mario-yellow);
+    --accent-success: var(--mario-green);
+    --accent-warning: var(--mario-orange);
+    --accent-danger: var(--mario-red);
+    --border-color: var(--mario-yellow);
+    --font-primary: 'Courier New', monospace;
+    --font-secondary: 'Courier New', monospace;
+    --glow-primary: 0 0 var(--glow-size) rgba(255, 215, 0, 0.6);
 }
 
 /* Base Styles */
@@ -138,6 +170,24 @@ body.theme-pipboy::before {
     animation: crt-flicker 0.1s infinite linear alternate;
 }
 
+/* Mario 8-bit Pixel Background */
+body.theme-mario::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, rgba(255, 215, 0, 0.1) 50%, transparent 50%),
+        linear-gradient(rgba(255, 0, 0, 0.05) 50%, transparent 50%);
+    background-size: 20px 20px, 40px 40px;
+    background-position: 0 0, 10px 10px;
+    pointer-events: none;
+    z-index: -1;
+    animation: mario-scroll 20s linear infinite;
+}
+
 @keyframes twinkle {
     from { transform: translateY(0); }
     to { transform: translateY(-100px); }
@@ -146,6 +196,21 @@ body.theme-pipboy::before {
 @keyframes crt-flicker {
     0% { opacity: 1; }
     100% { opacity: 0.98; }
+}
+
+@keyframes mario-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-40px); }
+}
+
+@keyframes mario-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes coin-spin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
 }
 
 /* Layout */
@@ -1377,6 +1442,290 @@ body.theme-pipboy #username-display {
     color: var(--pip-green);
     text-shadow: 0 0 8px var(--pip-green);
 }
+
+/* Super Mario 8-bit Theme Styles */
+body.theme-mario {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+body.theme-mario .login-container,
+body.theme-mario .stat-card,
+body.theme-mario .app-card {
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-red);
+    background-image: 
+        linear-gradient(45deg, var(--mario-red) 25%, var(--mario-dark-blue) 25%),
+        linear-gradient(-45deg, var(--mario-red) 25%, var(--mario-dark-blue) 25%),
+        linear-gradient(45deg, var(--mario-dark-blue) 75%, var(--mario-red) 75%),
+        linear-gradient(-45deg, var(--mario-dark-blue) 75%, var(--mario-red) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    box-shadow: 
+        4px 4px 0 var(--mario-brown),
+        8px 8px 0 var(--mario-gray);
+}
+
+body.theme-mario .login-container:hover,
+body.theme-mario .stat-card:hover,
+body.theme-mario .app-card:hover {
+    animation: mario-bounce 0.6s ease-in-out;
+    box-shadow: 
+        6px 6px 0 var(--mario-brown),
+        10px 10px 0 var(--mario-gray);
+}
+
+body.theme-mario .header h1 {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--mario-yellow);
+    text-shadow: 
+        3px 3px 0 var(--mario-red),
+        6px 6px 0 var(--mario-brown);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: mario-bounce 2s ease-in-out infinite;
+}
+
+body.theme-mario .btn {
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-red);
+    color: var(--mario-white);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 
+        3px 3px 0 var(--mario-brown),
+        6px 6px 0 var(--mario-gray);
+    transition: all 0.1s ease;
+}
+
+body.theme-mario .btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 
+        1px 1px 0 var(--mario-brown),
+        3px 3px 0 var(--mario-gray);
+}
+
+body.theme-mario .btn-primary {
+    background: var(--mario-green);
+    border-color: var(--mario-yellow);
+    color: var(--mario-white);
+}
+
+body.theme-mario .btn::before {
+    background: none;
+}
+
+body.theme-mario .stat-number {
+    color: var(--mario-yellow);
+    text-shadow: 
+        2px 2px 0 var(--mario-red),
+        4px 4px 0 var(--mario-brown);
+    font-family: 'Courier New', monospace;
+    animation: coin-spin 3s ease-in-out infinite;
+}
+
+body.theme-mario .app-title {
+    color: var(--mario-yellow);
+    text-shadow: 
+        1px 1px 0 var(--mario-red),
+        2px 2px 0 var(--mario-brown);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+body.theme-mario .app-url {
+    color: var(--mario-beige);
+    text-shadow: 1px 1px 0 var(--mario-brown);
+}
+
+body.theme-mario .app-url:hover {
+    color: var(--mario-yellow);
+    text-shadow: 
+        1px 1px 0 var(--mario-red),
+        2px 2px 0 var(--mario-brown);
+}
+
+body.theme-mario .app-status.online {
+    background: var(--mario-green);
+    color: var(--mario-white);
+    border: 2px solid var(--mario-yellow);
+    border-radius: 0;
+    text-shadow: 1px 1px 0 var(--mario-brown);
+}
+
+body.theme-mario .app-status.offline {
+    background: var(--mario-red);
+    color: var(--mario-white);
+    border: 2px solid var(--mario-yellow);
+    border-radius: 0;
+    text-shadow: 1px 1px 0 var(--mario-brown);
+}
+
+body.theme-mario .app-status.unknown {
+    background: var(--mario-gray);
+    color: var(--mario-white);
+    border: 2px solid var(--mario-yellow);
+    border-radius: 0;
+    text-shadow: 1px 1px 0 var(--mario-brown);
+}
+
+body.theme-mario .form-group input,
+body.theme-mario .form-group select,
+body.theme-mario .form-group textarea {
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-white);
+    color: var(--mario-black);
+    font-family: 'Courier New', monospace;
+    box-shadow: 
+        2px 2px 0 var(--mario-brown),
+        4px 4px 0 var(--mario-gray);
+}
+
+body.theme-mario .form-group input:focus,
+body.theme-mario .form-group select:focus,
+body.theme-mario .form-group textarea:focus {
+    border-color: var(--mario-red);
+    box-shadow: 
+        3px 3px 0 var(--mario-brown),
+        6px 6px 0 var(--mario-gray);
+}
+
+body.theme-mario .modal-content {
+    border: 4px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-blue);
+    box-shadow: 
+        6px 6px 0 var(--mario-brown),
+        12px 12px 0 var(--mario-gray);
+}
+
+body.theme-mario .modal-title {
+    color: var(--mario-yellow);
+    text-shadow: 
+        2px 2px 0 var(--mario-red),
+        4px 4px 0 var(--mario-brown);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+body.theme-mario .login-header h1 {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--mario-yellow);
+    text-shadow: 
+        3px 3px 0 var(--mario-red),
+        6px 6px 0 var(--mario-brown);
+    text-transform: uppercase;
+    animation: mario-bounce 2s ease-in-out infinite;
+}
+
+body.theme-mario .login-subtitle {
+    color: var(--mario-beige);
+    text-shadow: 1px 1px 0 var(--mario-brown);
+    font-family: 'Courier New', monospace;
+}
+
+body.theme-mario .login-form label {
+    color: var(--mario-yellow);
+    text-shadow: 1px 1px 0 var(--mario-brown);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+body.theme-mario .login-form input {
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-white);
+    color: var(--mario-black);
+    box-shadow: 
+        2px 2px 0 var(--mario-brown),
+        4px 4px 0 var(--mario-gray);
+}
+
+body.theme-mario .login-form input:focus {
+    border-color: var(--mario-red);
+    box-shadow: 
+        3px 3px 0 var(--mario-brown),
+        6px 6px 0 var(--mario-gray);
+}
+
+body.theme-mario .login-btn {
+    background: var(--mario-green);
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    color: var(--mario-white);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 
+        3px 3px 0 var(--mario-brown),
+        6px 6px 0 var(--mario-gray);
+}
+
+body.theme-mario .login-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 
+        1px 1px 0 var(--mario-brown),
+        3px 3px 0 var(--mario-gray);
+}
+
+body.theme-mario .theme-selector select,
+body.theme-mario .login-theme-selector select {
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-white);
+    color: var(--mario-black);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    box-shadow: 
+        2px 2px 0 var(--mario-brown),
+        4px 4px 0 var(--mario-gray);
+}
+
+body.theme-mario #username-display {
+    color: var(--mario-yellow);
+    text-shadow: 
+        1px 1px 0 var(--mario-red),
+        2px 2px 0 var(--mario-brown);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+body.theme-mario .control-panel {
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-red);
+    box-shadow: 
+        4px 4px 0 var(--mario-brown),
+        8px 8px 0 var(--mario-gray);
+}
+
+body.theme-mario .search-input {
+    border: 3px solid var(--mario-yellow);
+    border-radius: 0;
+    background: var(--mario-white);
+    color: var(--mario-black);
+    font-family: 'Courier New', monospace;
+    box-shadow: 
+        2px 2px 0 var(--mario-brown),
+        4px 4px 0 var(--mario-gray);
+}
+
+body.theme-mario .search-input:focus {
+    border-color: var(--mario-red);
+    box-shadow: 
+        3px 3px 0 var(--mario-brown),
+        6px 6px 0 var(--mario-gray);
+}
 `;
 
 export const SCRIPT = `// AppWatch Dashboard - Modern JavaScript with Authentication
@@ -1468,25 +1817,40 @@ class AuthManager {
 
 // Global theme functions
 window.changeTheme = function(theme) {
-    document.body.className = theme === 'pipboy' ? 'theme-pipboy' : '';
+    // Set theme class
+    document.body.className = '';
+    if (theme === 'pipboy') {
+        document.body.className = 'theme-pipboy';
+    } else if (theme === 'mario') {
+        document.body.className = 'theme-mario';
+    }
+    
     localStorage.setItem('appwatch-theme', theme);
     
     // Update title based on theme for both login and dashboard
     const titles = {
         login: theme === 'pipboy' ? 
             'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
+            theme === 'mario' ?
+            'SUPER MARIO WORLD' :
             'AppWatch',
         dashboard: theme === 'pipboy' ? 
             'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL' : 
+            theme === 'mario' ?
+            'SUPER MARIO WORLD' :
             'AppWatch'
     };
     
     const subtitles = {
         login: theme === 'pipboy' ? 
             'TERMINAL ACCESS PROTOCOL' : 
+            theme === 'mario' ?
+            'WARP ZONE MONITORING SYSTEM' :
             'Galactic Monitoring Station',
         dashboard: theme === 'pipboy' ? 
             'TERMINAL ACCESS PROTOCOL' : 
+            theme === 'mario' ?
+            'WARP ZONE MONITORING SYSTEM' :
             'Galactic Monitoring Station'
     };
     
@@ -1502,10 +1866,14 @@ window.changeTheme = function(theme) {
     if (dashboardTitle) dashboardTitle.textContent = titles.dashboard;
     if (dashboardSubtitle) dashboardSubtitle.textContent = subtitles.dashboard;
     
+    const notificationMessages = {
+        'space': 'SPACE STATION THEME ACTIVATED',
+        'pipboy': 'TERMINAL THEME ACTIVATED', 
+        'mario': 'MAMMA MIA! 8-BIT THEME ACTIVATED! 🍄'
+    };
+    
     showNotification(
-        theme === 'pipboy' ? 
-            'TERMINAL THEME ACTIVATED' : 
-            'SPACE STATION THEME ACTIVATED',
+        notificationMessages[theme] || 'THEME ACTIVATED',
         'success'
     );
 };

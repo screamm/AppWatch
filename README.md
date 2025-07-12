@@ -1,16 +1,16 @@
 # 🚀 AppWatch Dashboard
 
-> **Säker monitoring dashboard med dual-tema system och lösenordsskydd - Space Station & Pip-Boy Terminal**
+> **Säker monitoring dashboard med tri-tema system och lösenordsskydd - Space Station, Pip-Boy Terminal & Super Mario 8-bit**
 
 ![Status](https://img.shields.io/badge/status-🛸%20operational-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-🌌%20Cloudflare%20Workers-blue)
-![Themes](https://img.shields.io/badge/themes-🌟%20space%20%7C%20🎮%20pipboy-purple)
+![Themes](https://img.shields.io/badge/themes-🌟%20space%20%7C%20🎮%20pipboy%20%7C%20🍄%20mario-purple)
 ![Security](https://img.shields.io/badge/security-🔐%20PBKDF2%20protected-red)
 ![License](https://img.shields.io/badge/license-ISC-blue)
 
 ## 🌌 Overview
 
-AppWatch Dashboard är en säker, futuristisk monitoring-lösning med lösenordsskydd och två distinkta teman för att övervaka dina applikationer. Välj mellan det eleganta Space Station-temat eller det retro-futuristiska Pip-Boy Terminal-temat från Fallout-universumet.
+AppWatch Dashboard är en säker, futuristisk monitoring-lösning med lösenordsskydd och tre distinkta teman för att övervaka dina applikationer. Välj mellan det eleganta Space Station-temat, det retro-futuristiska Pip-Boy Terminal-temat från Fallout-universumet, eller det nostalgiska Super Mario 8-bit-temat från Nintendo-eran.
 
 ### 🔐 Security Features
 
@@ -28,7 +28,7 @@ AppWatch Dashboard är en säker, futuristisk monitoring-lösning med lösenords
 - 🔐 **Secured Dashboard** - Endast autentiserade användare får åtkomst
 - 🚪 **Logout Function** - Säker utloggning med session-rensning
 
-### 🎨 Dual Theme System
+### 🎨 Tri-Theme System
 
 **🌟 Space Station Theme:**
 - 🌌 **Animated Starfield** - Twinklande stjärnor i rörlig bakgrund
@@ -41,6 +41,14 @@ AppWatch Dashboard är en säker, futuristisk monitoring-lösning med lösenords
 - 🟢 **Monochrome Green** - Klassisk grön-på-svart färgschema
 - ⚡ **CRT Flicker Effects** - Subtila flimmer-animationer
 - 🖥️ **Share Tech Mono** - Autentisk terminal-typsnitt
+
+**🍄 Super Mario 8-bit Theme:**
+- 🎮 **Pixel Perfect Design** - Autentisk 8-bit pixel art estetik
+- 🟥 **Classic Nintendo Colors** - Röd, blå, gul från originalspelet
+- 🪙 **Coin Spin Animations** - Roterande statistik som gyllene mynt
+- 🧱 **Block Patterns** - Tegelblock-mönster och 3D-skuggor
+- 🎯 **Mario Bounce Effects** - Hopp-animationer på hover
+- 📟 **Courier New Typography** - Monospace för pixel-font känsla
 
 ### 📊 Modern Dashboard Features
 
@@ -174,6 +182,7 @@ npm run deploy
 Use the theme selector in the header to switch between:
 - **Space Station** - Modern space-themed interface
 - **Pip-Boy Terminal** - Retro Fallout-inspired terminal
+- **Super Mario 8-bit** - Nostalgic Nintendo-inspired pixel art
 
 ### Keyboard Shortcuts
 
@@ -317,9 +326,13 @@ GET /api/apps/{id}/history
 ### Adding New Themes
 
 1. Define theme variables in `src/assets.js`
-2. Add theme-specific styles
-3. Update theme selector in HTML
-4. Add theme logic in JavaScript
+2. Add theme-specific styles with `body.theme-yourtheme` selector
+3. Update theme selector options in HTML (both login and dashboard)
+4. Add theme logic in JavaScript `changeTheme()` function
+
+**Example themes already implemented:**
+- `theme-pipboy` - Fallout terminal aesthetic
+- `theme-mario` - Nintendo 8-bit pixel art style
 
 ### Custom Categories
 
@@ -343,6 +356,7 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 - Inspired by Fallout's Pip-Boy interface
 - Space theme inspired by modern sci-fi aesthetics
+- Super Mario theme inspired by classic Nintendo 8-bit games
 - Built with Cloudflare Workers platform
 - Typography by Google Fonts
 
